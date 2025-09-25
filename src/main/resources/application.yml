@@ -1,0 +1,9 @@
+resilience4j:
+  circuitbreaker:
+    instances:
+      externalServiceCB:
+        sliding-window-size: 5         # last 5 calls are recorded
+        minimum-number-of-calls: 3     # circuit breaker activates after 3 calls
+        failure-rate-threshold: 50     # % of failures before opening
+        wait-duration-in-open-state: 10s
+        permitted-number-of-calls-in-half-open-state: 2
